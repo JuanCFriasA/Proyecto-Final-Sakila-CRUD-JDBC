@@ -67,7 +67,7 @@ public class FilmManager extends DataContext<Film> {
         return list;
     }
 
-    // GET WITH STRING FILTER (OBLIGATORIO)
+    // GET WITH STRING FILTER 
     @Override
     public List<Film> get(String filter){
         List<Film> list = new ArrayList<>();

@@ -19,17 +19,17 @@ public class Menu {
     public void show(){
 
         while(true){
-            System.out.println("\n------------- SAKILA FINAL PROJECT ----------");
-            System.out.println("1. Country CRUD");
-            System.out.println("2. City CRUD");
-            System.out.println("3. Film CRUD");
-            System.out.println("4. Customer CRUD");
-            System.out.println("5. Inventory CRUD");
-            System.out.println("6. Rental CRUD");
-            System.out.println("7. Payment CRUD");
-            System.out.println("8. Reports");
-            System.out.println("0. Exit");
-            System.out.print("Select: ");
+            System.out.println("\n---------------- DB DATA MANAGER ----------------");
+            System.out.println("1. Country");
+            System.out.println("2. City");
+            System.out.println("3. Film");
+            System.out.println("4. Customer");
+            System.out.println("5. Inventory");
+            System.out.println("6. Rental");
+            System.out.println("7. Payment");
+            System.out.println("8. Reportes");
+            System.out.println("0. Salir del programa");
+            System.out.print("Seleccionar: ");
 
             int op = input.nextInt();
             input.nextLine();
@@ -44,33 +44,31 @@ public class Menu {
                 case 7 -> paymentMenu();
                 case 8 -> reportMenu();
                 case 0 -> {
-                    System.out.println("Exiting...");
+                    System.out.println("Saliendo del programa...");
                     return;
                 }
-                default -> System.out.println("Invalid option!");
+                default -> System.out.println("Opcion Invalida");
             }
         }
     }
 
-    // ================================
     // COUNTRY CRUD
-    // ================================
     private void countryMenu(){
         while(true){
             System.out.println("\n=== COUNTRY MENU ===");
-            System.out.println("1. Insert Country");
-            System.out.println("2. Get Country by ID");
-            System.out.println("3. List All Countries");
-            System.out.println("4. Update Country");
-            System.out.println("5. Delete Country");
-            System.out.println("0. Back");
+            System.out.println("1. Ingresar Pais");
+            System.out.println("2. Mostrar Pais por ID");
+            System.out.println("3. Listar todos los paises");
+            System.out.println("4. Actualizar Pais");
+            System.out.println("5. Eliminar Pais");
+            System.out.println("0. Atras");
 
             int op = input.nextInt();
             input.nextLine();
 
             switch(op){
                 case 1 -> {
-                    System.out.print("Country name: ");
+                    System.out.print("Nombre del pais: ");
                     String c = input.nextLine();
                     countryManager.post(new Country(0, c));
                 }
@@ -79,7 +77,7 @@ public class Menu {
                     int id = input.nextInt();
                     input.nextLine();
                     var obj = countryManager.get(id);
-                    System.out.println(obj != null ? obj.getCountry() : "Not found!");
+                    System.out.println(obj != null ? obj.getCountry() : "No encontrado");
                 }
                 case 3 -> countryManager.get().forEach(x -> 
                     System.out.println(x.getId() + " - " + x.getCountry())
@@ -88,12 +86,12 @@ public class Menu {
                     System.out.print("ID: ");
                     int id = input.nextInt();
                     input.nextLine();
-                    System.out.print("New name: ");
+                    System.out.print("Nuevo nombre: ");
                     String c = input.nextLine();
                     countryManager.put(new Country(id, c));
                 }
                 case 5 -> {
-                    System.out.print("ID to delete: ");
+                    System.out.print("ID para borrar: ");
                     int id = input.nextInt();
                     input.nextLine();
                     countryManager.delete(id);
@@ -103,27 +101,26 @@ public class Menu {
         }
     }
 
-    // ================================
+
     // CITY CRUD
-    // ================================
     private void cityMenu(){
         while(true){
             System.out.println("\n=== CITY MENU ===");
-            System.out.println("1. Insert City");
-            System.out.println("2. Get City by ID");
-            System.out.println("3. List All");
-            System.out.println("4. Update City");
-            System.out.println("5. Delete City");
-            System.out.println("0. Back");
+            System.out.println("1. Ingresar Ciudad");
+            System.out.println("2. Mostrar Ciudad por ID");
+            System.out.println("3. Mostrar todas las Ciudades");
+            System.out.println("4. Actualizar Ciudad");
+            System.out.println("5. Borrar Ciudad");
+            System.out.println("0. Atras");
 
             int op = input.nextInt();
             input.nextLine();
 
             switch(op){
                 case 1 -> {
-                    System.out.print("City name: ");
+                    System.out.print("Nombre de ciudad: ");
                     String name = input.nextLine();
-                    System.out.print("Country ID: ");
+                    System.out.print("ID de Pais: ");
                     int cid = input.nextInt();
                     input.nextLine();
                     cityManager.post(new City(0, name, cid));
@@ -134,18 +131,18 @@ public class Menu {
                     var o = cityManager.get(id);
                     if(o != null){
                         System.out.println(o.getId() + " - " + o.getCity());
-                    } else System.out.println("Not found.");
+                    } else System.out.println("no encontrada");
                 }
                 case 3 -> cityManager.get().forEach(x ->
-                    System.out.println(x.getId()+" - "+x.getCity()+" (country "+x.getCountryId()+")")
+                    System.out.println(x.getId()+" - "+x.getCity()+" (pais "+x.getCountryId()+")")
                 );
                 case 4 -> {
                     System.out.print("ID: ");
                     int id = input.nextInt();
                     input.nextLine();
-                    System.out.print("New city name: ");
+                    System.out.print("nuevo nombre de ciudad: ");
                     String n = input.nextLine();
-                    System.out.print("Country ID: ");
+                    System.out.print("pais ID: ");
                     int cid = input.nextInt();
                     cityManager.put(new City(id, n, cid));
                 }
@@ -158,9 +155,8 @@ public class Menu {
         }
     }
 
-    // ================================
+
     // FILM CRUD
-    // ================================
     private void filmMenu(){
         while(true){
             System.out.println("\n=== FILM MENU ===");
@@ -213,9 +209,7 @@ public class Menu {
         }
     }
 
-    // ================================
     // CUSTOMER CRUD
-    // ================================
     private void customerMenu(){
         while(true){
             System.out.println("\n=== CUSTOMER MENU ===");
@@ -268,9 +262,7 @@ public class Menu {
         }
     }
 
-    // ================================
     // INVENTORY CRUD
-    // ================================
     private void inventoryMenu(){
         while(true){
             System.out.println("\n=== INVENTORY MENU ===");
@@ -318,9 +310,7 @@ public class Menu {
         }
     }
 
-    // ================================
     // RENTAL CRUD
-    // ================================
     private void rentalMenu(){
         while(true){
             System.out.println("\n=== RENTAL MENU ===");
@@ -372,9 +362,7 @@ public class Menu {
         }
     }
 
-    // ================================
     // PAYMENT CRUD
-    // ================================
     private void paymentMenu(){
         while(true){
             System.out.println("\n=== PAYMENT MENU ===");
@@ -426,9 +414,7 @@ public class Menu {
         }
     }
 
-    // ================================
     // REPORT MENU
-    // ================================
     private void reportMenu(){
         System.out.println("\n=== REPORTS ===");
         System.out.println("1. Total films");

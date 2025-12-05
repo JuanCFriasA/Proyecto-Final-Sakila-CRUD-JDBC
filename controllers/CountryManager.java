@@ -61,7 +61,7 @@ public class CountryManager extends DataContext<Country> {
         return list;
     }
 
-    // GET WITH FILTER (OBLIGATORIO)
+    // GET WITH FILTER
     @Override
     public List<Country> get(String filter) {
         List<Country> list = new ArrayList<>();

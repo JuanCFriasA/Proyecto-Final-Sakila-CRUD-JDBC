@@ -67,7 +67,7 @@ public class RentalManager extends DataContext<Rental> {
         return list;
     }
 
-    // GET WITH FILTER (OBLIGATORIO)
+    // GET WITH FILTER 
     @Override
     public List<Rental> get(String filter){
         List<Rental> list = new ArrayList<>();

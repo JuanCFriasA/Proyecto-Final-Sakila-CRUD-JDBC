@@ -67,7 +67,7 @@ public class PaymentManager extends DataContext<Payment> {
         return list;
     }
 
-    // GET WITH FILTER — by customer_id or rental_id
+    // GET WITH FILTER 
     @Override
     public List<Payment> get(String filter){
         List<Payment> list = new ArrayList<>();

@@ -67,7 +67,7 @@ public class CustomerManager extends DataContext<Customer> {
         return list;
     }
 
-    // GET WITH FILTER (OBLIGATORIO)
+    // GET WITH FILTER 
     @Override
     public List<Customer> get(String filter){
         List<Customer> list = new ArrayList<>();

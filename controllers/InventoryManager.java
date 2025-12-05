@@ -64,8 +64,7 @@ public class InventoryManager extends DataContext<Inventory> {
         return list;
     }
 
-    // GET WITH FILTER — OBLIGATORIO POR iDataPost
-    // Vamos a filtrar por film_id o store_id
+    // GET WITH FILTER — 
     @Override
     public List<Inventory> get(String filter){
         List<Inventory> list = new ArrayList<>();
