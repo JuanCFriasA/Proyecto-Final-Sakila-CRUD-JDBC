@@ -19,7 +19,7 @@ public class Menu {
     public void show(){
 
         while(true){
-            System.out.println("\n===== SAKILA FINAL PROJECT =====");
+            System.out.println("\n------------- SAKILA FINAL PROJECT ----------");
             System.out.println("1. Country CRUD");
             System.out.println("2. City CRUD");
             System.out.println("3. Film CRUD");
